@@ -5,6 +5,7 @@
 
 /* Styling for the main navigation bar */
 nav {
+  padding: 0 40px;
   height: 80px;
   position: fixed;
   top: 0%;
@@ -75,6 +76,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 8px;
+    font-weight: 900;
   }
 }
 
@@ -112,6 +114,7 @@ nav {
 /* Hover effect for individual links in the navigation */
 .link a:hover {
   color: #3685fb;
+  text-decoration: underline;
 }
 
 /* Media queries for mobile responsiveness */
