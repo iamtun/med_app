@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-// import { API_URL } from "../../config";
+import { API_URL } from "../../config";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
@@ -23,34 +23,34 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // const res = await fetch(`${API_URL}/api/auth/login`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     ...data,
-    //   }),
-    // });
-    // // Parse the response JSON
-    // const json = await res.json();
-    // if (json.authtoken) {
-    //   // If authentication token is received, store it in session storage
-    //   sessionStorage.setItem("auth-token", json.authtoken);
-    //   sessionStorage.setItem("email", data.email + "");
-    //   // Redirect to home page and reload the window
-    //   navigate("/");
-    //   window.location.reload();
-    // } else {
-    //   // Handle errors if authentication fails
-    //   if (json.errors) {
-    //     for (const error of json.errors) {
-    //       alert(error.msg);
-    //     }
-    //   } else {
-    //     alert(json.error);
-    //   }
-    // }
+    const res = await fetch(`${API_URL}/api/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...data,
+      }),
+    });
+    // Parse the response JSON
+    const json = await res.json();
+    if (json.authtoken) {
+      // If authentication token is received, store it in session storage
+      sessionStorage.setItem("auth-token", json.authtoken);
+      sessionStorage.setItem("email", data.email + "");
+      // Redirect to home page and reload the window
+      navigate("/");
+      window.location.reload();
+    } else {
+      // Handle errors if authentication fails
+      if (json.errors) {
+        for (const error of json.errors) {
+          alert(error.msg);
+        }
+      } else {
+        alert(json.error);
+      }
+    }
   };
 
   return (

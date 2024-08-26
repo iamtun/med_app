@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import "./Sign_up.css";
-// import { API_URL } from "../../config";
-// import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [data, setData] = useState({
@@ -14,7 +14,7 @@ const SignUp = () => {
   });
   const [phoneError, setPhoneError] = useState("");
   const [showPass, setShowPass] = useState(false);
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,35 +28,35 @@ const SignUp = () => {
 
     delete data.role;
 
-    // const response = await fetch(`${API_URL}/api/auth/register`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     ...data,
-    //   }),
-    // });
+    const response = await fetch(`${API_URL}/api/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...data,
+      }),
+    });
 
-    // const json = await response.json(); // Parse the response JSON
-    // if (json.authtoken) {
-    //   // Store user data in session storage
-    //   sessionStorage.setItem("auth-token", json.authtoken);
-    //   sessionStorage.setItem("name", data.name + "");
-    //   sessionStorage.setItem("phone", data.phone + "");
-    //   sessionStorage.setItem("email", data.email + "");
-    //   // Redirect user to home page
-    //   navigate("/");
-    //   window.location.reload(); // Refresh the page
-    // } else {
-    //   if (json.errors) {
-    //     for (const error of json.errors) {
-    //       console.log(error.msg); // Show error messages
-    //     }
-    //   } else {
-    //     alert(json.error);
-    //   }
-    // }
+    const json = await response.json(); // Parse the response JSON
+    if (json.authtoken) {
+      // Store user data in session storage
+      sessionStorage.setItem("auth-token", json.authtoken);
+      sessionStorage.setItem("name", data.name + "");
+      sessionStorage.setItem("phone", data.phone + "");
+      sessionStorage.setItem("email", data.email + "");
+      // Redirect user to home page
+      navigate("/");
+      window.location.reload(); // Refresh the page
+    } else {
+      if (json.errors) {
+        for (const error of json.errors) {
+         alert(error.msg); // Show error messages
+        }
+      } else {
+        alert(json.error);
+      }
+    }
   };
 
   return (
