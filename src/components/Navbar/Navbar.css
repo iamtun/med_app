@@ -16,6 +16,10 @@ nav {
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 16px;
+  }
 }
 
 /* Styling for the dropdown menu */
