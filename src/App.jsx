@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { LandingPage, Login, Navbar, SignUp } from "./components";
+import { InstantConsultation, LandingPage, Login, Navbar, SignUp } from "./components";
 
 function App() {
   return (
@@ -11,6 +11,10 @@ function App() {
           <Route path="/" Component={LandingPage} />
           <Route path="/signup" Component={SignUp} />
           <Route path="/login" Component={Login} />
+          <Route
+            path="/instant-consultation"
+            element={<InstantConsultation />}
+          />
         </Routes>
       </BrowserRouter>
     </main>
