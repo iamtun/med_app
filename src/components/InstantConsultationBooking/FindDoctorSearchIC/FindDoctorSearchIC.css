@@ -10,7 +10,7 @@
 .location-search-box {
   display: flex;
   align-items: center;
-  min-width: 430px;
+  min-width: 40dvw;
   position: relative;
 
   @media screen and (max-width: 768px) {
@@ -89,18 +89,21 @@
 .doctor-search-box {
   display: flex;
   align-items: center;
-  width: 430px;
+  width: 40dvw;
   position: absolute;
   margin-top: 25px;
   margin-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 - 1px 0 0 inset;
   border-radius: 5px;
-  height: 100vh;
 
   @media screen and (max-width: 768px) {
     max-width: 100dvw !important;
     justify-content: center;
   }
+}
+
+.doctor-search-box-active {
+  height: 100vh;
 }
 
 .doctor-search-box > img {

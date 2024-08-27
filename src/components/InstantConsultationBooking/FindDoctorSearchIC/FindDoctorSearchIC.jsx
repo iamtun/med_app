@@ -21,7 +21,6 @@ const FindDoctorSearchIC = () => {
     setSearchDoctor(speciality);
     setDoctorResultHidden(true);
     navigate(`/instant-consultation?speciality=${speciality}`);
-    window.location.reload();
   };
   return (
     <div className="finddoctor">
@@ -38,7 +37,11 @@ const FindDoctorSearchIC = () => {
             alignItems: "center",
           }}
         >
-          <div className="doctor-search-box">
+          <div
+            className={`doctor-search-box ${
+              doctorResultHidden ? "" : "doctor-search-box-active"
+            }`}
+          >
             {/* <p>Perform a search to see the results.</p> */}
 
             <div className="location-search-box">
@@ -65,11 +68,9 @@ const FindDoctorSearchIC = () => {
                   onMouseDown={() => handleDoctorSelect(speciality)}
                 >
                   <span>
-                    <img
-                      src={"/images/search.svg"}
-                      alt=""
-                      style={{ height: "10px", width: "10px" }}
-                      width="12"
+                    <i
+                      className="fa-solid fa-magnifying-glass"
+                      style={{ fontSize: "12px" }}
                     />
                   </span>
                   <span>{speciality}</span>
