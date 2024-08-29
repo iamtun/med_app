@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "./InstantConsultation.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import FindDoctorSearch from "../FindDoctorSearch/FindDoctorSearch";
-import DoctorCard from "../DoctorCard/DoctorCard";
+
+import FindDoctorSearchIC from "./FindDoctorSearchIC/FindDoctorSearchIC";
+import DoctorCardIC from "./DoctorCardIC/DoctorCardIC";
 
 const InstantConsultation = () => {
   const [searchParams] = useSearchParams();
@@ -57,13 +58,13 @@ const InstantConsultation = () => {
     // if (!authtoken) {
     //   navigate("/login");
     // }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   return (
     <center>
       <div className="searchpage-container">
-        <FindDoctorSearch onSearch={handleSearch} />
+        <FindDoctorSearchIC onSearch={handleSearch} />
         <div className="search-results-container">
           {isSearched ? (
             <center>
@@ -77,7 +78,7 @@ const InstantConsultation = () => {
               </h3>
               {filteredDoctors.length > 0 ? (
                 filteredDoctors.map((doctor) => (
-                  <DoctorCard
+                  <DoctorCardIC
                     className="doctorcard"
                     {...doctor}
                     key={doctor.name}
