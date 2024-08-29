@@ -4,7 +4,9 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import "./DoctorCard.css";
 import { v4 as uuidv4 } from "uuid";
-import AppointmentFormIC from "../InstantConsultationBooking/AppointmentFormIC/AppointmentFormIC";
+
+import AppointmentForm from "../AppointmentForm/AppointmentForm";
+
 const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
@@ -56,17 +58,10 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
             Ratings: {ratings}
           </div>
         </div>
-        {/* for reference  */}
-        {/* <div>
-              <button className='book-appointment-btn'>                    
-                <div>Book Appointment</div>
-              <div>No Booking Fee</div>
-            </button>
-              </div> */}
       </div>
 
       <div className="doctor-card-options-container">
-        {/* <Popup
+        <Popup
           style={{ backgroundColor: "#FFFFFF" }}
           trigger={
             <button
@@ -126,14 +121,19 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
                     <div className="bookedInfo" key={appointment.id}>
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
-                      <button onClick={() => handleCancel(appointment.id)}>
+                      <p>Date of Appointment: {appointment.dateOfAppointment}</p>
+                      <p>Time Slot: {appointment.timeSlot}</p>
+                      <button
+                        onClick={() => handleCancel(appointment.id)}
+                        className="btn btn btn-primary mt-5"
+                      >
                         Cancel Appointment
                       </button>
                     </div>
                   ))}
                 </>
               ) : (
-                <AppointmentFormIC
+                <AppointmentForm
                   doctorName={name}
                   doctorSpeciality={speciality}
                   onSubmit={handleFormSubmit}
@@ -141,14 +141,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
               )}
             </div>
           )}
-        </Popup> */}
-
-        <div>
-          <button className="book-appointment-btn">
-            <div>Book Appointment</div>
-            <div>No Booking Fee</div>
-          </button>
-        </div>
+        </Popup>
       </div>
     </div>
   );
