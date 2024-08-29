@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./InstantConsultation.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import DoctorCardIC from "./DoctorCardIC/DoctorCardIC";
 import FindDoctorSearch from "../FindDoctorSearch/FindDoctorSearch";
+import DoctorCard from "../DoctorCard/DoctorCard";
 
 const InstantConsultation = () => {
   const [searchParams] = useSearchParams();
@@ -77,7 +77,7 @@ const InstantConsultation = () => {
               </h3>
               {filteredDoctors.length > 0 ? (
                 filteredDoctors.map((doctor) => (
-                  <DoctorCardIC
+                  <DoctorCard
                     className="doctorcard"
                     {...doctor}
                     key={doctor.name}
