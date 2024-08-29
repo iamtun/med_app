@@ -17,11 +17,13 @@ const FindDoctorSearch = () => {
   const [searchDoctor, setSearchDoctor] = useState("");
   const [specialities] = useState(initSpeciality);
   const navigate = useNavigate();
+
   const handleDoctorSelect = (speciality) => {
     setSearchDoctor(speciality);
     setDoctorResultHidden(true);
-    navigate(`/instant-consultation?speciality=${speciality}`);
+    navigate(`/booking-consultation?speciality=${speciality}`);
   };
+
   return (
     <div className="finddoctor">
       <center>
