@@ -1,3 +1,9 @@
+.finddoctor {
+  @media screen and (max-width: 768px) {
+    margin-top: 80px;
+  }
+}
+
 .finddoctor-heading {
   font-size: 48px;
   font-weight: 700;
@@ -5,9 +11,14 @@
   padding-bottom: 8px;
   border-bottom: 1px solid #e0e0e0;
   width: fit-content;
+
+  @media screen and (max-width: 768px) {
+    font-size: 40px;
+  }
 }
 
 .location-search-box {
+  margin: 20px 0;
   display: flex;
   align-items: center;
   min-width: 40dvw;
@@ -39,8 +50,9 @@
 .search-doctor-icon {
   position: absolute;
   right: 12px;
-  top: 12px;
+  top: 20px;
   cursor: pointer;
+  font-size: 24px;
 }
 
 .search-location-input-results {
@@ -114,14 +126,15 @@
 }
 
 .search-doctor-input-box {
-  height: 40px;
+  height: 60px;
   width: 100%;
   padding: 6px 20px 5px 10px;
   outline: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 20px;
   border: 1px solid rgb(59, 58, 58);
   border-radius: 12px;
+  margin-bottom: 20px;
 }
 
 .findiconimg {
@@ -132,10 +145,11 @@
   border: 1px solid rgb(59, 58, 58);
   z-index: -99;
 }
+
 .search-doctor-input-results {
   position: absolute;
-  bottom: 0;
   width: 100%;
+  top: 52%;
   z-index: 5;
   height: 420px;
   margin-top: 2px;

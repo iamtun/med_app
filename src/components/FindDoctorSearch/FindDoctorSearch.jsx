@@ -25,7 +25,7 @@ const FindDoctorSearch = () => {
   return (
     <div className="finddoctor">
       <center>
-        <h1 className="finddoctor-heading">Find a doctor and Consult instantly</h1>
+        <h1 className="finddoctor-heading">Find a doctor at your own ease</h1>
         <div>
           <img src="/images/FindDoctorSearchIC.png" alt="FindDoctorSearchIC" />
         </div>{" "}
