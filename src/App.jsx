@@ -1,6 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { InstantConsultation, LandingPage, Login, Navbar, SignUp } from "./components";
+import {
+  BookingConsultation,
+  InstantConsultation,
+  LandingPage,
+  Login,
+  Navbar,
+  SignUp,
+} from "./components";
 
 function App() {
   return (
@@ -15,6 +22,7 @@ function App() {
             path="/instant-consultation"
             element={<InstantConsultation />}
           />
+          <Route path="/booking-consultation" Component={BookingConsultation} />
         </Routes>
       </BrowserRouter>
     </main>
