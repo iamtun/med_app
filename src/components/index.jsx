@@ -3,4 +3,13 @@ import Navbar from "./Navbar/Navbar";
 import Login from "./Login/Login";
 import SignUp from "./Sign_up/Sign_up";
 import InstantConsultation from "./InstantConsultationBooking/InstantConsultation";
-export { LandingPage, Navbar, Login, SignUp, InstantConsultation };
+import BookingConsultation from "./BookingConsultation/BookingConsultation";
+
+export {
+  LandingPage,
+  Navbar,
+  Login,
+  SignUp,
+  InstantConsultation,
+  BookingConsultation,
+};
