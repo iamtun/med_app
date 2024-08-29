@@ -45,7 +45,7 @@ const LandingPage = () => {
           <ServiceCard
             image={"/images/BookAnAppointment.png"}
             title={"Book an Appointment"}
-            link={"#"}
+            link={"booking-consultation"}
           />
 
           <ServiceCard
