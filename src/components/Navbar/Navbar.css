@@ -200,3 +200,12 @@ nav {
   background-color: #3685fb; /* Hover effect */
   color: white; /* Hover effect */
 }
+
+.nav_profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #0d213f;
+  cursor: pointer;
+}

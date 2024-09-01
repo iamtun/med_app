@@ -6,6 +6,8 @@ import InstantConsultation from "./InstantConsultationBooking/InstantConsultatio
 import BookingConsultation from "./BookingConsultation/BookingConsultation";
 
 import ReviewForm from "./ReviewForm/ReviewForm";
+import Profile from "./Profile/Profile";
+
 export {
   LandingPage,
   Navbar,
@@ -14,4 +16,5 @@ export {
   InstantConsultation,
   BookingConsultation,
   ReviewForm,
+  Profile,
 };

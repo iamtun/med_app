@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import Popup from "reactjs-popup";
 
 const Navbar = () => {
   const userName = sessionStorage.getItem("email");
@@ -263,7 +264,17 @@ const Navbar = () => {
 
         {userName ? (
           <>
-            <p>Wellcome, {userName}</p>
+            <Popup
+              contentStyle={{ width: 180 }}
+              trigger={<p>Wellcome, {userName}</p>}
+              arrow={false}
+            >
+              <ul className="nav_profile">
+                <li>
+                  <a href="/profile">Your Profile</a>
+                </li>
+              </ul>
+            </Popup>
             <li className="link">
               <button className="btn1" onClick={handleLogout}>
                 Logout

@@ -8,6 +8,7 @@ import {
   Navbar,
   SignUp,
   ReviewForm,
+  Profile,
 } from "./components";
 import NotificationProvider from "./context/notification";
 
@@ -26,6 +27,7 @@ function App() {
           />
           <Route path="/booking-consultation" Component={BookingConsultation} />
           <Route path="/reviews" Component={ReviewForm} />
+          <Route path="/profile" Component={Profile} />
         </Routes>
       </NotificationProvider>
     </BrowserRouter>
