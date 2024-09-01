@@ -8,12 +8,13 @@ import {
   Navbar,
   SignUp,
 } from "./components";
+import NotificationProvider from "./context/notification";
 
 function App() {
   return (
-    <main>
-      <Navbar />
-      <BrowserRouter>
+    <BrowserRouter>
+      <NotificationProvider>
+        <Navbar />
         <Routes>
           <Route path="/" Component={LandingPage} />
           <Route path="/signup" Component={SignUp} />
@@ -24,8 +25,8 @@ function App() {
           />
           <Route path="/booking-consultation" Component={BookingConsultation} />
         </Routes>
-      </BrowserRouter>
-    </main>
+      </NotificationProvider>
+    </BrowserRouter>
   );
 }
 
