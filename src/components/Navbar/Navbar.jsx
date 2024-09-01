@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const userName = sessionStorage.getItem("email");
@@ -27,7 +28,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav__logo">
-        <a href="/">
+        <Link to="/">
           StayHealthy
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -227,7 +228,7 @@ const Navbar = () => {
               </radialGradient>
             </defs>
           </svg>
-        </a>
+        </Link>
       </div>
 
       <div
@@ -245,19 +246,19 @@ const Navbar = () => {
 
       <ul className={`nav__links ${activeNav ? "active" : ""}`}>
         <li className="link">
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
 
         <li className="link">
-          <a href="#">Appointments</a>
+          <Link to="#">Appointments</Link>
         </li>
 
         <li className="link">
-          <a href="#">Health Blog</a>
+          <Link to="#">Health Blog</Link>
         </li>
 
         <li className="link">
-          <a href="#">Reviews</a>
+          <Link to="#">Reviews</Link>
         </li>
 
         {userName ? (
