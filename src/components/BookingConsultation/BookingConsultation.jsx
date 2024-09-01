@@ -42,7 +42,6 @@ const InstantConsultation = () => {
       setIsSearched(false);
     } else {
       const filtered = doctors.filter((doctor) =>
-        //
         doctor.speciality.toLowerCase().includes(searchText.toLowerCase())
       );
 
@@ -53,11 +52,11 @@ const InstantConsultation = () => {
   };
   useEffect(() => {
     getDoctorsDetails();
-    // const authtoken = sessionStorage.getItem("auth-token");
-    // if (!authtoken) {
-    //   navigate("/login");
-    // }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    const authtoken = sessionStorage.getItem("auth-token");
+    if (!authtoken) {
+      navigate("/login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   return (
