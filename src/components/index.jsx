@@ -7,6 +7,7 @@ import BookingConsultation from "./BookingConsultation/BookingConsultation";
 
 import ReviewForm from "./ReviewForm/ReviewForm";
 import Profile from "./Profile/Profile";
+import ReportsLayout from "./ReportsLayout/ReportsLayout";
 
 export {
   LandingPage,
@@ -17,4 +18,5 @@ export {
   BookingConsultation,
   ReviewForm,
   Profile,
+  ReportsLayout,
 };

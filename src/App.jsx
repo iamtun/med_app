@@ -9,6 +9,7 @@ import {
   SignUp,
   ReviewForm,
   Profile,
+  ReportsLayout,
 } from "./components";
 import NotificationProvider from "./context/notification";
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/booking-consultation" Component={BookingConsultation} />
           <Route path="/reviews" Component={ReviewForm} />
           <Route path="/profile" Component={Profile} />
+          <Route path="/reports" Component={ReportsLayout} />
         </Routes>
       </NotificationProvider>
     </BrowserRouter>
