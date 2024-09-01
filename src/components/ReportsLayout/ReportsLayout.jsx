@@ -1,22 +1,24 @@
 import { useState } from "react";
 import "./ReportsLayout.css";
 const ReportsLayout = () => {
-  const [reviews,] = useState([
+  const [reports] = useState([
     {
       id: 1,
       doctorName: "Dr. John Doe",
       doctorSpeciality: "Cardiology",
+      report: "/files/patient_report.pdf",
     },
     {
       id: 2,
       doctorName: "Dr. Jane Smith",
       doctorSpeciality: "Dermatology",
+      report: "/files/patient_report.pdf",
     },
   ]);
 
   return (
     <div className="report-container table-responsive ">
-      <h3 className="fw-bold">Reviews</h3>
+      <h3 className="fw-bold">Reports</h3>
       <table className="table">
         <thead>
           <tr>
@@ -28,20 +30,27 @@ const ReportsLayout = () => {
           </tr>
         </thead>
         <tbody>
-          {reviews.map((review) => (
-            <tr key={review.id}>
-              <th scope="row">{review.id}</th>
-              <td>{review.doctorName}</td>
-              <td>{review.doctorSpeciality}</td>
+          {reports.map((report) => (
+            <tr key={report.id}>
+              <th scope="row">{report.id}</th>
+              <td>{report.doctorName}</td>
+              <td>{report.doctorSpeciality}</td>
               <td>
-                <button className="btn btn-primary btn-selected">
+                <a
+                  className="btn btn-primary btn-selected"
+                  href={report.report}
+                >
                   View Report
-                </button>
+                </a>
               </td>
               <td>
-                <button className="btn btn-primary btn-selected">
+                <a
+                  className="btn btn-primary btn-selected"
+                  download={true}
+                  href={report.report}
+                >
                   Download Report
-                </button>
+                </a>
               </td>
             </tr>
           ))}
