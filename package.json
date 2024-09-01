@@ -4,10 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "install:frontend": "npm install",
+    "install:backend": "cd server && npm install",
+    "install:all": "npm run install:frontend && npm run install:backend",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && rm -rdf server/build && mv dist server/build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "cd server && npm run start"
   },
   "dependencies": {
     "react": "^18.3.1",

@@ -3,15 +3,14 @@ FROM node:18
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json to container
-COPY package*.json ./
-
+COPY . .
 # Install dependencies
-RUN npm install
+RUN npm run install:all
+RUN npm run build
+
+COPY . .
 
 # Copy rest of the application to container
-COPY . .
 
 # Expose the port your app runs on
 EXPOSE 3000
