@@ -26,7 +26,7 @@ jobs:
         node-version: '18'
     # Install the dependencies for the application
     - name: Install dependencies
-      run: npm install:all
+      run: npm run install:all
     # Build the application
     - name: Build
       run: npm run build
