@@ -258,7 +258,7 @@ const Navbar = () => {
         </li>
 
         <li className="link">
-          <Link to="#">Reviews</Link>
+          <Link to="/reviews">Reviews</Link>
         </li>
 
         {userName ? (

@@ -7,6 +7,7 @@ import {
   Login,
   Navbar,
   SignUp,
+  ReviewForm,
 } from "./components";
 import NotificationProvider from "./context/notification";
 
@@ -24,6 +25,7 @@ function App() {
             element={<InstantConsultation />}
           />
           <Route path="/booking-consultation" Component={BookingConsultation} />
+          <Route path="/reviews" Component={ReviewForm} />
         </Routes>
       </NotificationProvider>
     </BrowserRouter>

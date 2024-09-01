@@ -5,6 +5,7 @@ import SignUp from "./Sign_up/Sign_up";
 import InstantConsultation from "./InstantConsultationBooking/InstantConsultation";
 import BookingConsultation from "./BookingConsultation/BookingConsultation";
 
+import ReviewForm from "./ReviewForm/ReviewForm";
 export {
   LandingPage,
   Navbar,
@@ -12,4 +13,5 @@ export {
   SignUp,
   InstantConsultation,
   BookingConsultation,
+  ReviewForm,
 };
