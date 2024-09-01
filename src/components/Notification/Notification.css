@@ -1,0 +1,10 @@
+.notification_container {
+  padding: 16px;
+  width: 300px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #158cff;
+  border-radius: 16px;
+  color: #fff;
+}
