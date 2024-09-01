@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
@@ -12,7 +13,14 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ name, phoneNumber, dateOfAppointment, timeSlot: selectedSlot });
+    onSubmit({
+      name,
+      phoneNumber,
+      dateOfAppointment,
+      timeSlot: selectedSlot ?? "09:00 AM",
+      doctorName,
+      doctorSpeciality,
+    });
     setName("");
     setPhoneNumber("");
   };

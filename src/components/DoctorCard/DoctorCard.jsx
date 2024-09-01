@@ -6,27 +6,39 @@ import "./DoctorCard.css";
 import { v4 as uuidv4 } from "uuid";
 
 import AppointmentForm from "../AppointmentForm/AppointmentForm";
+import { useNotification } from "../../context/notification";
 
-const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
+const DoctorCard = ({ name, speciality, experience, ratings }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
-  const handleBooking = () => {
-    setShowModal(true);
-  };
+  const { setNotification } = useNotification();
 
   const handleCancel = (appointmentId) => {
+    localStorage.removeItem(`Appointment_${appointmentId}`);
     const updatedAppointments = appointments.filter(
       (appointment) => appointment.id !== appointmentId
     );
     setAppointments(updatedAppointments);
+    setNotification(null);
   };
 
   const handleFormSubmit = (appointmentData) => {
+    const phoneNumberRegex = /^\d{10}$/;
+
+    if (
+      appointmentData.phoneNumber &&
+      !phoneNumberRegex.test(appointmentData.phoneNumber)
+    ) {
+      alert("Phone number should be 10 digits");
+      return;
+    }
+
     const newAppointment = {
       id: uuidv4(),
       ...appointmentData,
     };
+    setNotification({ ...newAppointment, doctorName: name, speciality });
     const updatedAppointments = [...appointments, newAppointment];
     setAppointments(updatedAppointments);
     setShowModal(false);
@@ -81,7 +93,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
           open={showModal}
           onClose={() => setShowModal(false)}
         >
-          {(close) => (
+          {() => (
             <div
               className="doctorbg"
               style={{ height: "100vh", overflow: "scroll" }}
@@ -121,7 +133,9 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
                     <div className="bookedInfo" key={appointment.id}>
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
-                      <p>Date of Appointment: {appointment.dateOfAppointment}</p>
+                      <p>
+                        Date of Appointment: {appointment.dateOfAppointment}
+                      </p>
                       <p>Time Slot: {appointment.timeSlot}</p>
                       <button
                         onClick={() => handleCancel(appointment.id)}
